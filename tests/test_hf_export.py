@@ -76,11 +76,11 @@ def test_few_shot_assets_match_paper(rows):
 def test_disjoint_splits_and_v5_selection(rows):
     splits = exporter.partition_rows(rows)
     assert {c: {s: len(rs) for s, rs in ss.items()} for c, ss in splits.items()} == {
-        "endoscapes": {"few_shot": 4, "dev": 49}, "sages": {"few_shot": 4, "dev": 56},
+        "endoscapes": {"few_shot": 4, "dev": 49}, "sages": {"few_shot": 6, "dev": 54},
     }
-    assert [r["gt_pattern"] for r in exporter.selected_examples("sages")] == ["001", "000", "101", "111"]
+    assert [r["gt_pattern"] for r in exporter.selected_examples("sages")] == ["000", "111", "110", "001", "101", "100"]
     for config, ss in splits.items():
-        assert [r["few_shot_order"] for r in ss["few_shot"]] == list(range(4))
+        assert [r["few_shot_order"] for r in ss["few_shot"]] == list(range(exporter.FEW_SHOT_COUNTS[config]))
         assert all(r["is_few_shot"] for r in ss["few_shot"])
         assert all(not r["is_few_shot"] and r["few_shot_order"] == -1 for r in ss["dev"])
         for field in ("example_id", "image_sha256"):

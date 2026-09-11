@@ -9,7 +9,6 @@ import hashlib
 import io
 import json
 import os
-import random
 from pathlib import Path
 import shutil
 import tempfile
@@ -28,6 +27,7 @@ FEW_SHOT_DIR = Path("few_shot_examples/endoscapes/rubrics/filtered")
 FEW_SHOT_MANIFEST = FEW_SHOT_DIR / "selected_examples_v3.jsonl"
 SAGES_FEW_SHOT_MANIFEST = Path("few_shot_examples/cvs_challenge_sages_v1/rubrics/filtered/selected_examples_v5.jsonl")
 SELECTION_MANIFESTS = {"endoscapes": FEW_SHOT_MANIFEST, "sages": SAGES_FEW_SHOT_MANIFEST}
+FEW_SHOT_COUNTS = {"endoscapes": 4, "sages": 6}
 SOURCES = {
     "endoscapes": ("validation", ROOT / "annotations/rubric_labels/endoscapes_val__rubrics_v1__seed13__batch0__filtered_no_all_uncertain_fix_error.jsonl"),
     "sages": ("train", ROOT / "annotations/rubric_labels/sages__rubrics_v3__seed13__batch0__20260219_203800.jsonl"),
@@ -45,9 +45,9 @@ def read_rows(path: Path) -> list[dict]:
 
 def selected_examples(config: str) -> list[dict]:
     rows = read_rows(ROOT / SELECTION_MANIFESTS[config])
-    if config == "sages":
-        random.Random(13).shuffle(rows)
-    return rows[:4]
+    if len(rows) != FEW_SHOT_COUNTS[config]:
+        raise ValueError(f"Unexpected few-shot manifest size: {config}")
+    return rows
 
 
 def selection_key(example: dict) -> tuple[str, int]:
@@ -63,7 +63,7 @@ def partition_rows(rows: dict) -> dict:
         by_key = {(r["video_id"], r["frame_id"]): r for r in records}
         selected = [by_key[selection_key(r)] for r in selected_examples(config)]
         dev = [r for r in records if not r["is_few_shot"]]
-        if len(selected) != 4 or len(dev) + len(selected) != len(records):
+        if len(selected) != FEW_SHOT_COUNTS[config] or len(dev) + len(selected) != len(records):
             raise ValueError(f"Invalid split sizes: {config}")
         for field in ("example_id", "image_sha256"):
             if {r[field] for r in selected} & {r[field] for r in dev}:
@@ -190,7 +190,7 @@ def few_shot_assets(rows: dict) -> list[Path]:
 def few_shot_reference() -> str:
     lines = [
         "## Few-shot Video and Frame Reference", "",
-        "Rows follow the exact few-shot prompt order for each source.", "",
+        "Rows follow the full few-shot manifest order for each source.", "",
         "| Source | Original video filename / ID | Frame ID | Image filename | CVS targets |",
         "| --- | --- | ---: | --- | --- |",
     ]
@@ -249,8 +249,8 @@ Human rubric labels, original laparoscopic images, and original Critical View of
 | --- | ---: | --- |
 | endoscapes / few_shot | 4 | Paper exemplars, in manifest order |
 | endoscapes / dev | {len(rows['endoscapes']) - 4} | Remaining corrected Endoscapes annotations |
-| sages / few_shot | 4 | v5 candidates sampled with k=4, seed=13, in prompt order |
-| sages / dev | {len(rows['sages']) - 4} | Remaining SAGES annotations |
+| sages / few_shot | 6 | All v5 examples, in manifest order |
+| sages / dev | {len(rows['sages']) - 6} | Remaining SAGES annotations |
 
 These are the human-labeled rubric subsets, not the paper's 791-frame evaluation set.
 The splits are disjoint by image identity and image checksum, with all 113 images retained exactly once.
@@ -271,8 +271,9 @@ The manifest preserves the paper selection order, CVS targets, and all 19 rubric
 Its `saved_image` paths resolve from the downloaded repository root.
 
 SAGES retains the [six-candidate v5 manifest]({SAGES_FEW_SHOT_MANIFEST.as_posix()}) and its original JPGs.
-Only four candidates enter `few_shot`: patterns 001, 000, 101, 111, selected by Python Random(13).shuffle
-followed by taking the first four. The unused candidates (110, 100) remain in `dev`.
+All six enter `few_shot` in manifest order: patterns 000, 111, 110, 001, 101, 100.
+None of these six images appear in `dev`. This retains the full v5 set, not the four-example
+subsample used in one SAGES experiment; the paper itself reports Endoscapes experiments only.
 SAGES manifest paths were made repository-relative; all other values and source image bytes are unchanged.
 The selection version v5 is independent of the rubric specification v3.
 
@@ -333,9 +334,9 @@ def export(out: Path, endo_root: Path, sages_root: Path, frames_root: Path, repo
     ids = list(rows["endoscapes"][0]["rubric_labels"])
     manifest = {"rubric_sha256": sha256(RUBRIC.read_bytes()), "configs": {}}
     manifest["few_shot_selection"] = {
-        config: {"manifest": path.as_posix(), "k": 4,
-                 "seed": 13 if config == "sages" else None,
-                 "policy": "shuffle_then_first_k" if config == "sages" else "manifest_order",
+        config: {"manifest": path.as_posix(), "k": FEW_SHOT_COUNTS[config],
+                 "seed": None,
+                 "policy": "manifest_order",
                  "selected": [{"video_id": r["video_id"], "frame_id": selection_key(r)[1],
                                "gt_pattern": r["gt_pattern"]} for r in selected_examples(config)]}
         for config, path in SELECTION_MANIFESTS.items()
