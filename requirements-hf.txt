@@ -1,0 +1,4 @@
+-r requirements.txt
+datasets>=4,<5
+huggingface_hub>=1,<2
+python-dotenv>=1,<2

@@ -86,3 +86,22 @@ There are documented run-count and no-FS scoring discrepancies, plus an unresolv
 - Historical Endoscapes filenames and label metadata retain `rubrics_v1`; the corrected file is the final exemplar-selection input. SAGES labels are retained as additional annotation assets, not as results reported in this Endoscapes paper.
 
 To prepare SAGES frames on another machine, run [extract_frames.py](scripts/extract_frames.py) for both `train_dev.jsonl` and `train_rest.jsonl` under `data/manifests/cvs_challenge_sages_v1/`, using `--root data/CVS_Challenge_SAGES_v1 --manifest <manifest> --out data/frames`.
+
+## Hugging Face
+
+[BrachioLab/sum-of-checks](https://huggingface.co/datasets/BrachioLab/sum-of-checks) packages the 53 corrected Endoscapes and 60 SAGES rubric-labeled images, their original CVS labels, all SAGES rater votes, and [rubric v3](rubrics/cvs_rubrics_v3.json). It belongs to the [Laparoscopic Cholecystectomy collection](https://huggingface.co/collections/BrachioLab/laparoscopic-cholecystectomy-6a13cd06fa87aa9d2603e2ac).
+
+Build and validate the portable image dataset:
+
+```bash
+pip install -r requirements-hf.txt
+python scripts/export_hf_sum_of_checks.py --validate
+```
+
+Publish with `python scripts/export_hf_sum_of_checks.py --upload`. Authentication uses `HF_TOKEN` or the Hugging Face login cache; `--env-file <path>` can supply an existing dotenv credential file. The script validates every image and label before upload and again from the uploaded revision, then adds the dataset to the collection. Export files under `hf_repos/` are ignored by Git.
+
+```python
+from datasets import load_dataset
+endo = load_dataset("BrachioLab/sum-of-checks", "endoscapes", split="validation")
+sages = load_dataset("BrachioLab/sum-of-checks", "sages", split="train")
+```

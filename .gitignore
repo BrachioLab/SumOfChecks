@@ -210,6 +210,7 @@ cython_debug/
 /application_default_credentials.json
 /outputs/generated/
 /annotations/new/
+/hf_repos/
 
 # Marimo
 marimo/_static/
