@@ -91,6 +91,10 @@ To prepare SAGES frames on another machine, run [extract_frames.py](scripts/extr
 
 [BrachioLab/sum-of-checks](https://huggingface.co/datasets/BrachioLab/sum-of-checks) packages the 53 corrected Endoscapes and 60 SAGES rubric-labeled images, their original CVS labels, all SAGES rater votes, and [rubric v3](rubrics/cvs_rubrics_v3.json). It belongs to the [Laparoscopic Cholecystectomy collection](https://huggingface.co/collections/BrachioLab/laparoscopic-cholecystectomy-6a13cd06fa87aa9d2603e2ac).
 
+Each source has disjoint `few_shot` and `dev` image splits: Endoscapes 4/49, SAGES 4/56. SAGES uses the final v5 selection with k=4 and seed=13. See [data/README.md](data/README.md) and the [executed example notebook](notebooks/load_hf_sum_of_checks.ipynb). Rubric labels are development annotations from a surgeon-trained ML PhD student, not expert ground truth.
+
+Original video filenames/IDs and frame IDs for all eight selected exemplars are listed in the [few-shot reference table](data/README.md#few-shot-video-and-frame-reference).
+
 Build and validate the portable image dataset:
 
 ```bash
@@ -102,6 +106,7 @@ Publish with `python scripts/export_hf_sum_of_checks.py --upload`. Authenticatio
 
 ```python
 from datasets import load_dataset
-endo = load_dataset("BrachioLab/sum-of-checks", "endoscapes", split="validation")
-sages = load_dataset("BrachioLab/sum-of-checks", "sages", split="train")
+endo = load_dataset("BrachioLab/sum-of-checks", "endoscapes", split="dev")
+sages = load_dataset("BrachioLab/sum-of-checks", "sages", split="dev")
+sages_few_shot = load_dataset("BrachioLab/sum-of-checks", "sages", split="few_shot")
 ```
