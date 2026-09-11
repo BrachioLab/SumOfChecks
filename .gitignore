@@ -201,6 +201,16 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# Local datasets, credentials, and new inference runs
+/data/endoscapes
+/data/CVS_Challenge_SAGES_v1
+/data/frames
+/data/frames_full
+/API_KEYS*.json
+/application_default_credentials.json
+/outputs/generated/
+/annotations/new/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/

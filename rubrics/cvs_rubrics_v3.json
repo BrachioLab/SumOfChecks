@@ -1,0 +1,147 @@
+{
+    "rubric_version": "cvs_rubrics_v2",
+    "task": "CVS frame-level rubric scoring",
+    "label_space": ["yes", "no", "uncertain"],
+    "criteria": {
+      "C1": {
+        "description": "Two and only two tubular structures are visible entering the gallbladder.",
+        "items": [
+          {
+            "id": "C1-1",
+            "text": "The gallbladder neck (infundibulum) region is clearly visible and in-frame.",
+            "weight": 0.1,
+            "label_type": "precondition"
+          },
+          {
+            "id": "C1-2",
+            "text": "There are exactly two tubular attachment tracks entering the gallbladder wall.",
+            "weight": 0.3,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C1-3",
+            "text": "The two tubular structures are visually distinguishable from each other at the gallbladder entry.",
+            "weight": 0.3,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C1-4",
+            "text": "The gallbladder entry site is sufficiently exposed that no additional tubular structure could plausibly be hidden.",
+            "weight": 0.1,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C1-5",
+            "text": "Camera angle and exposure are sufficient to confidently assess the number of tubular structures entering the gallbladder.",
+            "weight": 0.1,
+            "label_type": "modifier"
+          },
+          {
+            "id": "C1-6",
+            "text": "No instrument is present, or if present, it does not obscure the intersection between the gallbladder and the tubular structures.",
+            "weight": 0.1,
+            "label_type": "modifier"
+          }
+        ],
+        "weight_sum_note": "Weights sum to 1.0."
+      },
+  
+      "C2": {
+        "description": "The hepatocystic triangle is cleared of fat and fibrous tissue.",
+        "items": [
+          {
+            "id": "C2-1",
+            "text": "The hepatocystic triangle region is clearly visible and in-frame.",
+            "weight": 0.1,
+            "label_type": "precondition"
+          },
+          {
+            "id": "C2-2",
+            "text": "Minimal fat or fibrous tissue is within the hepatocystic triangle.",
+            "weight": 0.2,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C2-3",
+            "text": "Liver parenchyma is visible within the hepatocystic triangle (i.e., between the cystic duct and the liver edge), not merely beneath the gallbladder.",
+            "weight": 0.3,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C2-4",
+            "text": "No continuous sheet of fat or fibrous tissue spans across and occludes the interior of the hepatocystic triangle.",
+            "weight": 0.2,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C2-5",
+            "text": "Camera angle and exposure are sufficient to confidently assess hepatocystic triangle clearance.",
+            "weight": 0.1,
+            "label_type": "modifier"
+          },
+          {
+            "id": "C2-6",
+            "text": "No instrument is present, or if present, it does not obscure the interior of the hepatocystic triangle.",
+            "weight": 0.1,
+            "label_type": "modifier"
+          }
+        ],
+        "weight_sum_note": "Weights sum to 1.0."
+      },
+  
+      "C3": {
+        "description": "The lower third of the gallbladder is detached from the liver bed.",
+        "items": [
+          {
+            "id": "C3-1",
+            "text": "The boundary between the gallbladder wall and liver at the lower third is clearly visible and in-frame.",
+            "weight": 0.1,
+            "label_type": "precondition"
+          },
+          {
+            "id": "C3-2",
+            "text": "A clearly visible separation interface indicating detachment is present between the gallbladder wall and the liver bed in the lower third.",
+            "weight": 0.3,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C3-3",
+            "text": "The exposed liver bed (cystic plate) surface is visible at the detachment site of the lower third of the gallbladder.",
+            "weight": 0.2,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C3-4",
+            "text": "The detachment extends across a substantial portion of the lower third, not just a focal point.",
+            "weight": 0.1,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C3-5",
+            "text": "No continuous tissue bridge connects the lower third of the gallbladder to the liver bed.",
+            "weight": 0.1,
+            "label_type": "evidence"
+          },
+          {
+            "id": "C3-6",
+            "text": "Camera angle and exposure are sufficient to confidently assess gallbladder detachment from the liver bed.",
+            "weight": 0.1,
+            "label_type": "modifier"
+          },
+          {
+            "id": "C3-7",
+            "text": "No instrument is present, or if present, it does not obscure the gallbladder–liver interface.",
+            "weight": 0.1,
+            "label_type": "modifier"
+          }
+        ],
+        "weight_sum_note": "Weights sum to 1.0."
+      }
+    },
+    "label_type_definitions": {
+      "precondition": "Visibility or identifiability prerequisite for judging the criterion; not direct proof of satisfaction.",
+      "evidence": "Direct visual evidence supporting or refuting criterion satisfaction.",
+      "modifier": "Factors that affect confidence by influencing observability (e.g., camera angle, instrument occlusion), not the surgical state itself."
+    }
+  }
+  

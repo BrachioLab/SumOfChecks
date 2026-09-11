@@ -1,0 +1,145 @@
+\begin{table}[t]
+\caption{\textbf{Frame-level CVS assessment performance (mAP).} Cells show mean mAP (\%) across runs; $\pm$ indicates std across runs. Best results per model bolded.}
+\label{tab:frame_map_main}
+\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.05}
+\scriptsize
+\begin{tabular}{l l cccc}
+\toprule
+\textbf{Model} & \textbf{Method} & \textbf{C1} & \textbf{C2} & \textbf{C3} & \textbf{Avg} \\
+\midrule
+
+\multirow{7}{*}{\makecell{\textbf{GPT-4.1}\\\textbf{mini}}}
+& Direct
+& 22.9$_{\pm 0.5}$
+& 23.9$_{\pm 1.4}$
+& 42.5$_{\pm 1.2}$
+& 29.7$_{\pm 0.9}$ \\
+
+& Direct+FS
+& 26.9$_{\pm 0.7}$
+& 26.8$_{\pm 0.4}$
+& 42.9$_{\pm 0.8}$
+& 32.2$_{\pm 0.4}$ \\
+
+& CoT
+& 26.2$_{\pm 0.6}$
+& 27.7$_{\pm 1.7}$
+& 43.9$_{\pm 0.8}$
+& 32.6$_{\pm 0.6}$ \\
+
+& CoT+FS
+& 26.9$_{\pm 1.0}$
+& 28.2$_{\pm 0.4}$
+& 44.3$_{\pm 0.9}$
+& 33.1$_{\pm 0.4}$ \\
+
+& SubQ
+& 22.5$_{\pm 1.2}$
+& 25.9$_{\pm 0.8}$
+& 43.4$_{\pm 1.2}$
+& 30.6$_{\pm 0.8}$ \\
+
+& SubQ+FS
+& 22.1$_{\pm 1.2}$
+& 21.5$_{\pm 0.2}$
+& 43.8$_{\pm 0.3}$
+& 29.1$_{\pm 0.5}$ \\
+
+& \textbf{\OURS{}}
+& \textbf{33.6$_{\pm 0.8}$}
+& \textbf{29.1$_{\pm 1.0}$}
+& \textbf{47.9$_{\pm 1.1}$}
+& \textbf{36.9$_{\pm 0.5}$} \\
+\midrule
+
+\multirow{7}{*}{\makecell{\textbf{Claude}\\\textbf{Haiku 4.5}}}
+& Direct
+& 20.7$_{\pm 0.3}$
+& 20.8$_{\pm 0.2}$
+& 42.2$_{\pm 0.2}$
+& 27.9$_{\pm 0.1}$ \\
+
+& Direct+FS
+& 21.1$_{\pm 0.2}$
+& 21.9$_{\pm 0.7}$
+& 46.5$_{\pm 0.8}$
+& 29.8$_{\pm 0.4}$ \\
+
+& CoT
+& 19.7$_{\pm 0.7}$
+& 21.7$_{\pm 0.8}$
+& 43.8$_{\pm 1.3}$
+& 28.4$_{\pm 0.4}$ \\
+
+& CoT+FS
+& 22.5$_{\pm 0.5}$
+& 23.7$_{\pm 0.2}$
+& 43.1$_{\pm 0.6}$
+& 29.7$_{\pm 0.4}$ \\
+
+& SubQ
+& 23.4$_{\pm 0.5}$
+& 22.5$_{\pm 0.7}$
+& 43.3$_{\pm 0.3}$
+& 29.8$_{\pm 0.2}$ \\
+
+& SubQ+FS
+& 22.4$_{\pm 0.3}$
+& 23.8$_{\pm 0.7}$
+& 42.5$_{\pm 0.3}$
+& 29.6$_{\pm 0.4}$ \\
+
+& \textbf{\OURS{}}
+& \textbf{29.2$_{\pm 0.3}$}
+& \textbf{24.2$_{\pm 0.5}$}
+& \textbf{48.5$_{\pm 0.1}$}
+& \textbf{34.0$_{\pm 0.2}$} \\
+\midrule
+
+\multirow{7}{*}{\makecell{\textbf{Claude}\\\textbf{Opus 4.5}}}
+& Direct
+& 24.3$_{\pm 0.4}$
+& 25.4$_{\pm 0.1}$
+& 42.9$_{\pm 0.5}$
+& 30.9$_{\pm 0.3}$ \\
+
+& Direct+FS
+& 28.0$_{\pm 0.2}$
+& 26.7$_{\pm 0.2}$
+& 43.9$_{\pm 0.7}$
+& 32.9$_{\pm 0.3}$ \\
+
+& CoT
+& 26.4$_{\pm 0.4}$
+& 26.6$_{\pm 0.8}$
+& 42.5$_{\pm 1.0}$
+& 31.9$_{\pm 0.2}$ \\
+
+& CoT+FS
+& 27.6$_{\pm 0.2}$
+& 26.0$_{\pm 0.4}$
+& 43.4$_{\pm 0.1}$
+& 32.3$_{\pm 0.2}$ \\
+
+& SubQ
+& 24.1$_{\pm 1.9}$
+& 24.5$_{\pm 0.1}$
+& 43.0$_{\pm 0.6}$
+& 30.5$_{\pm 0.8}$ \\
+
+& SubQ+FS
+& 20.7$_{\pm 0.5}$
+& 21.9$_{\pm 0.6}$
+& 43.7$_{\pm 0.5}$
+& 28.8$_{\pm 0.2}$ \\
+
+& \textbf{\OURS{}}
+& \textbf{31.1$_{\pm 0.3}$}
+& \textbf{32.9$_{\pm 0.4}$}
+& \textbf{46.9$_{\pm 0.1}$}
+& \textbf{37.0$_{\pm 0.1}$} \\
+\bottomrule
+\end{tabular}
+\end{table}

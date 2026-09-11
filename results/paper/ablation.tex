@@ -1,0 +1,18 @@
+\begin{table}[t]
+\caption{\textbf{Ablation: Rubric aggregation variants (GPT-4.1-mini).} Impact of few-shot examples and aggregation strategy on mAP (\%).}
+\label{tab:ablation_rubric}
+\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.05}
+\scriptsize
+\begin{tabular}{l cccc}
+\toprule
+\textbf{Method} & \textbf{C1} & \textbf{C2} & \textbf{C3} & \textbf{Avg} \\
+\midrule
+No FS (weighted) & 24.6$_{\pm 0.6}$ & 24.6$_{\pm 1.8}$ & 44.5$_{\pm 0.7}$ & 31.2$_{\pm 0.7}$ \\
+No FS (LLM; PDF row) & 23.4$_{\pm 0.3}$ & 23.9$_{\pm 1.4}$ & 44.1$_{\pm 0.5}$ & 30.5$_{\pm 0.4}$ \\
+\OURS{} (LLM agg.) & 29.3$_{\pm 2.1}$ & 27.2$_{\pm 0.8}$ & 46.5$_{\pm 0.6}$ & 34.3$_{\pm 0.8}$ \\
+\textbf{\OURS{} (Weighted)}  (ours) & \textbf{33.6$_{\pm 0.8}$} & \textbf{29.1$_{\pm 1.0}$} & \textbf{47.9$_{\pm 1.1}$} & \textbf{36.9$_{\pm 0.5}$} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,421 @@
+{
+  "source_repository": "../lvlm_cvs_reasoning",
+  "files": [
+    {
+      "path": "rubrics/cvs_rubrics_v3.json",
+      "source_sha256": "fbfc0b826b4fe475588b73378eb93e92343b8388993fbc0d6ec2494282954160"
+    },
+    {
+      "path": "scripts/rubric_oracle_reasoning_frame.py",
+      "source_sha256": "505be4b9a886e9092e593ef6a14b005d998a4007cdc137c6f4fc2d2fd9b06597"
+    },
+    {
+      "path": "scripts/build_manifest.py",
+      "source_sha256": "230cd45e550a3ea386da1e3f1c9e68b8125cc7cf9f3ef92e8ee567ad03784d55"
+    },
+    {
+      "path": "scripts/split_manifest.py",
+      "source_sha256": "5f94e3b15e044c96952692de614eca4e8ef64b4925035b1264a6f0181a391ce1"
+    },
+    {
+      "path": "annotations/rubric_labels/endoscapes_val__rubrics_v1__seed13__batch0__20260114_033331.jsonl",
+      "source_sha256": "9271e8d6b0b6662f1cc03ebc196ab988b6e8235b25ac0a2a4246d6c6e87d6e16"
+    },
+    {
+      "path": "annotations/rubric_labels/endoscapes_val__rubrics_v1__seed13__batch0__filtered_no_all_uncertain.jsonl",
+      "source_sha256": "12986c1bf64529a272e5febdf026220b17150c3cbe600bb1784b5a270f986822"
+    },
+    {
+      "path": "annotations/rubric_labels/endoscapes_val__rubrics_v1__seed13__batch0__filtered_no_all_uncertain_fix_error.jsonl",
+      "source_sha256": "cb45549036d4c83b8ee23dee69346638996f1335530305f24cc81737139a84e8"
+    },
+    {
+      "path": "annotations/rubric_labels/sages__rubrics_v3__seed13__batch0__20260219_203800.jsonl",
+      "source_sha256": "e55904922347cbbd7d50a6079bc0c08a8afceb299d25fbffbb0aaf24f307da4d"
+    },
+    {
+      "path": "src/data/__init__.py",
+      "source_sha256": "3e0eec8cf88b667b4dca44123f842703bca43237a76c6577fca3b36634242a73"
+    },
+    {
+      "path": "src/data/datasets.py",
+      "source_sha256": "0782731abe6d7b0424ce151e9f506f3d634b47d470a4ede50761131598721fdd"
+    },
+    {
+      "path": "src/data/endoscapes.py",
+      "source_sha256": "1feba078b26d928982688a3927fdac04774e77e8a6ebf1a7ef594f24ddccb1a0"
+    },
+    {
+      "path": "src/data/cvs_challenge_sages_v1.py",
+      "source_sha256": "7d467359e94a22237a5c43732ab91a8f90db2611cfb99ea3e3bd28206b355e91"
+    },
+    {
+      "path": "src/models/__init__.py",
+      "source_sha256": "2363b584e222c70b110213332faa33c892b28d21fed87206646d1fcf93d7291c"
+    },
+    {
+      "path": "src/models/base.py",
+      "source_sha256": "0b0af15f4702b87808c90413720595b8ca99b78ccf4c421537096d2ed8a53d2c"
+    },
+    {
+      "path": "src/models/utils.py",
+      "source_sha256": "1d2c61787384fca9a49dbd20f63e130a90dee05ce68abbfed47364f05a8e94b7"
+    },
+    {
+      "path": "src/models/openai_gpt.py",
+      "source_sha256": "e87021432de34248497f6758e6e4ba130e845369b8ec0048a928b8a1c5a790b4"
+    },
+    {
+      "path": "src/models/anthropic_claude.py",
+      "source_sha256": "bd992cdc9ea8b87cf95dd6f22e81693f1f9d48e13982c47b36cc6801e315010c"
+    },
+    {
+      "path": "data/manifests/endoscapes/test_dev.jsonl",
+      "source_sha256": "571c00df5c358f4e74aa625dc56a24a2f69b6ca6612736939d8b33836f9444f8"
+    },
+    {
+      "path": "data/manifests/endoscapes/test_manifest.jsonl",
+      "source_sha256": "7dda392f61d5e0ebe2909aeb3302c7b6c79486e5811397b948bbab0c10f21e0b"
+    },
+    {
+      "path": "data/manifests/endoscapes/test_rest.jsonl",
+      "source_sha256": "62f058b856ec65981e9c3501d44d53cfadea598621c2292bbee69d4b48ae6dd3"
+    },
+    {
+      "path": "data/manifests/endoscapes/val_manifest.jsonl",
+      "source_sha256": "d5c79815e8bae3f4f52554d2be2d0b750d65456fc03ecbb645e2c82bf51db7bb"
+    },
+    {
+      "path": "data/manifests/cvs_challenge_sages_v1/train_dev.jsonl",
+      "source_sha256": "2e7ea1d1165f3f9eb07a01fa959e58a6992f229bb4e91105ae4b3fea49a2b50a"
+    },
+    {
+      "path": "data/manifests/cvs_challenge_sages_v1/train_rest.jsonl",
+      "source_sha256": "782614378144de6cffb0197ce03e65c2b060fbe582b65141fc3ebb51b1cd1ab0"
+    },
+    {
+      "path": "few_shot_examples/endoscapes/rubrics/filtered/selected_examples_v3.jsonl",
+      "source_sha256": "ad0472006ae4f90063b0b481b3fb91d81a6c3a4136d2588009f754711e50b163"
+    },
+    {
+      "path": "few_shot_examples/endoscapes/rubrics/filtered/images/129_69650.jpg",
+      "source_sha256": "7f822b1f1875064509df8ee5ab77c42ef73eddd0f9e60fb3a49874445641017a"
+    },
+    {
+      "path": "few_shot_examples/endoscapes/rubrics/filtered/images/154_33500.jpg",
+      "source_sha256": "a9ae01d61a24b537cdf3d756c393ee28f487a51dc0f4bb85c3ccc5277fa8f764"
+    },
+    {
+      "path": "few_shot_examples/endoscapes/rubrics/filtered/images/152_41050.jpg",
+      "source_sha256": "128cb6fd2e56444bca1d5f68f240085ea8bc9a1f08ca7cf6b98a6bcfd0eb892f"
+    },
+    {
+      "path": "few_shot_examples/endoscapes/rubrics/filtered/images/148_21675.jpg",
+      "source_sha256": "917d0ea94daaa36e7f33b89390ed5e12555b1795a9212a0b2d17c3b7b9190b06"
+    },
+    {
+      "path": "notebooks/rubrics/compact_endoscapes_map.ipynb",
+      "source_sha256": "b39626c955b86661d549743172ae1d94aa341fe79f4dfb66f74eec9e5899e1db"
+    },
+    {
+      "path": "notebooks/rubrics/view_endoscapes_examples.ipynb",
+      "source_sha256": "8bce430b5d23a3dbb7b059b57153e9a7ba76b0517eec5fe43b0458a90ce7f969"
+    },
+    {
+      "path": "notebooks/rubrics/select_few_shot_examples.ipynb",
+      "source_sha256": "e896496aa2c1118185d1549549fe1a972db35f0ea904f1c9837c1b95dfe6425b"
+    },
+    {
+      "path": "notebooks/rubrics/metadata_rubric_label_endoscapes.ipynb",
+      "source_sha256": "e679599e53bb17b6a0cb0f6dbcff9078f6160ed71e5fc161b37d4f7cd64b80b2"
+    },
+    {
+      "path": "notebooks/rubrics/metadata_rubric_label_sages.ipynb",
+      "source_sha256": "894b4d6c087b41e2f4ca143fbb2e46e86a7a3b173314ef7cb5bc97f056b4b20f"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run001.jsonl",
+      "source_sha256": "5bd3cc0af64d63bde86ea39307f561275119e00a078de976f4f5f0051bedadc9"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run002.jsonl",
+      "source_sha256": "25f10d9758b9c383647f6029462d00dea7526cceee8cdf3d1430e034e6e26cd1"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run003.jsonl",
+      "source_sha256": "b21d336b7401097d538fb7a80e1a828c95c7eac9fef5d0bb65e175399b3d5355"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__fsv3__fs4____seed13__claude-opus-4-5-20251101_run001.jsonl",
+      "source_sha256": "27186fb26533c96ce1c5f848bf8efd487cbcb193fa8bced09e420ca085671844"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__fsv3__fs4____seed13__claude-opus-4-5-20251101_run002.jsonl",
+      "source_sha256": "acf6b3da485668a4a1644b22223580ba593a7385b4a3314fcba0bc7866e6eda1"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__fsv3__fs4____seed13__claude-opus-4-5-20251101_run003.jsonl",
+      "source_sha256": "7f5cc681cbeea2b2ac79dab23af5de19041b28395e96cf4e4f6e4b633553d5ca"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__fsv3__fs4____seed13__gpt-4.1-mini_run001.jsonl",
+      "source_sha256": "381168039a506ac03578c53153e0cee6cf9167fe6897dc9f74f9e7ebdd20fe3c"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__fsv3__fs4____seed13__gpt-4.1-mini_run002.jsonl",
+      "source_sha256": "2ad5c6e1f26955c6ceffa60e22843d03a521fb44541425ecf0d2ffc753b72f5e"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__fsv3__fs4____seed13__gpt-4.1-mini_run003.jsonl",
+      "source_sha256": "3fc209b095674566f428d7c19b55bc6bd873849057c20ce9b4050db6a577bb81"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run001.jsonl",
+      "source_sha256": "87eae473cf441f216b8a7f10b9db7be3a231c8cf9218a8eda6fe8e59a7d8d31e"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run002.jsonl",
+      "source_sha256": "85aed2864724b8a5567fd168cc5cb75f56d9a2e1a6bfed6d7940c16c5bb4a6af"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run003.jsonl",
+      "source_sha256": "d94d0e2cdaa0185778990d434c6054c578f429b365d2b124338856af2130727b"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__fsv3__fs4____seed13__claude-opus-4-5-20251101_run001.jsonl",
+      "source_sha256": "5a9a5ac7ef7beee92ed277a9a195051782461e083d2cda351cc8342a9ae09221"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__fsv3__fs4____seed13__claude-opus-4-5-20251101_run002.jsonl",
+      "source_sha256": "30bbbad01f15d6aceb48d57474340ff081dd2fd01c2ca5bb4464dd729ff2c81e"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__fsv3__fs4____seed13__claude-opus-4-5-20251101_run003.jsonl",
+      "source_sha256": "31df74d015a524650c77373ba9a7bbfc40f93ff593bdf98c633ab6774a7ae400"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__fsv3__fs4____seed13__gpt-4.1-mini_run001.jsonl",
+      "source_sha256": "296c23a2363907429e6f64e8e7804b8993e6997fe2e586e4254332db6e564fb6"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__fsv3__fs4____seed13__gpt-4.1-mini_run002.jsonl",
+      "source_sha256": "3268a7bbe21658db775793886c47f0b9fb8733c17bad6d27c2bff176104cc19f"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__fsv3__fs4____seed13__gpt-4.1-mini_run003.jsonl",
+      "source_sha256": "d1b0957c2fb409767586e56b766cb8d2e98f50f9848ad50f753e739c6e5d3b66"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__seed13__claude-haiku-4-5-20251001_run001.jsonl",
+      "source_sha256": "def483fdc155aa17df0301eaa4a41c2c5a43d354d442ad23b75f41b0b43d2a4a"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__seed13__claude-haiku-4-5-20251001_run002.jsonl",
+      "source_sha256": "555e7e5d727538378b375f45bda18c86b29e080b458bde0ff2d5b1cfbaaf9110"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__seed13__claude-haiku-4-5-20251001_run003.jsonl",
+      "source_sha256": "9a5007c436233c3a380016fc2e050a2e9480884cac5aee10bac92d1ebfa1d62d"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__seed13__claude-opus-4-5-20251101_run001.jsonl",
+      "source_sha256": "18ee32c338b57999fe6b3a38fceb366d086f9adcba99eeaac1c6838965198d7b"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__seed13__claude-opus-4-5-20251101_run002.jsonl",
+      "source_sha256": "f07c97d1ab2d0e088feaff6d59dce6b802d28b06de8175c7aabe0f632ae59718"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__seed13__claude-opus-4-5-20251101_run003.jsonl",
+      "source_sha256": "f854029f87f925656d4f6b4c75057f779550bf253e4c4b1c8c11546a5c5476be"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__seed13__gpt-4.1-mini_run001.jsonl",
+      "source_sha256": "d2a73440c73c448f15051346b14f4fff80cd83044ca42c10784ea0b6dcce058a"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__seed13__gpt-4.1-mini_run002.jsonl",
+      "source_sha256": "568ad407661d3e07e0c658bbf99e78232db914c0ec41a903fe8ba79f89e7b341"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__ratdf__seed13__gpt-4.1-mini_run003.jsonl",
+      "source_sha256": "1641adadea07494ee3b3495483fbe4d7fc8f83d75ac6a4b4a9d3e48a680adc07"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__claude-haiku-4-5-20251001_run001.jsonl",
+      "source_sha256": "8a746a30b1845280b8210b0c9608c9ee27d03d78fdfda6bdd174ce87f99becbb"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__claude-haiku-4-5-20251001_run002.jsonl",
+      "source_sha256": "b04c12e3517cf84cad28f1287161f088d2768310def7e8035de38b88507daf35"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__claude-haiku-4-5-20251001_run003.jsonl",
+      "source_sha256": "673a30881da76185856e008fb690e3929b98c58165b27c9cecdb5b699feb5aa4"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__claude-opus-4-5-20251101_run001.jsonl",
+      "source_sha256": "b13d78b94afb502688d1167f53963bc3d531bba827ffc89518fc0184df85f051"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__claude-opus-4-5-20251101_run002.jsonl",
+      "source_sha256": "6612605f02d00f024923bce2296a817896521da1e14967a86428b616f684caf3"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__claude-opus-4-5-20251101_run003.jsonl",
+      "source_sha256": "4b9632869c478344c2b74abaebd2548b19d5ad8c458f16eee75450a64130f7ef"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__gpt-4.1-mini_run001.jsonl",
+      "source_sha256": "7eef74d9cae69965027634580f04d180e067eccbb8075f42158d22ea25b3db94"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__gpt-4.1-mini_run002.jsonl",
+      "source_sha256": "bc80726a398a7fb2773984f4fa40602b78b707586fa14a6ff842d87b6ed9a390"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__gpt-4.1-mini_run003.jsonl",
+      "source_sha256": "b68c33c51c7b4e46adc45383fe391951ae7f55d18b11890f03eb1bb091508746"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__gpt-4.1-mini_run004.jsonl",
+      "source_sha256": "fc918a128abcd12c078db1f85c929affef513dc4ee97892cfabc32874574f72c"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__gpt-4.1-mini_run005.jsonl",
+      "source_sha256": "af06544f060244aea210cd74daf65cc783de89ae7d0b9c89d4417ec9414c33b6"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__direct__preset-direct__test_dev__critdef__seed13__gpt-4.1-mini_run006.jsonl",
+      "source_sha256": "65c9cb2265e404b256c6518a0f91e15d50c75dac7a61b37428a32eb7cc14439c"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run001.jsonl",
+      "source_sha256": "e9e1d9b0a02f192f689fc4a4643805f2942da5f2b46a27d406862c29c9a5069b"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run002.jsonl",
+      "source_sha256": "aae45dd54e3ed420dd6c629c7d9d805b772b40ce386d4f50b615bffbd49e1f31"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run003.jsonl",
+      "source_sha256": "fd03c8c5d4456b842a2e2493c1ecb486f02474d4a5a9a02ed772293bf15209a3"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__fsv3__fs4____seed13__claude-opus-4-5-20251101_run001.jsonl",
+      "source_sha256": "5afe02489ed313fbc55bcbd9beeebb53273fde72f354fc464ad02e473f91a1e6"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__fsv3__fs4____seed13__claude-opus-4-5-20251101_run002.jsonl",
+      "source_sha256": "717ff152e9ebae1c4c55159152c11c38d9645657c0b8f3a1a7ecb22e7e0ff46f"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__fsv3__fs4____seed13__claude-opus-4-5-20251101_run003.jsonl",
+      "source_sha256": "e93748860a9651f4eb574029f568946d6efc80aa0a334e5564e574344ab9cbc7"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__fsv3__fs4____seed13__gpt-4.1-mini_run001.jsonl",
+      "source_sha256": "099d5f571d1d92107b2f861834a7b5857914a5ca7052f5110dabdad73f504944"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__fsv3__fs4____seed13__gpt-4.1-mini_run002.jsonl",
+      "source_sha256": "a71b75d7448d8e79dc11bc64044cca24fa65d8f6a53584c6e9b6c263f77fc560"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__fsv3__fs4____seed13__gpt-4.1-mini_run003.jsonl",
+      "source_sha256": "98baa2bcb87dac5a6f79cb340ce3402cb3a1d4e216b4463a88a66fd4c363aea0"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__seed13__gpt-4.1-mini_run001.jsonl",
+      "source_sha256": "c2c2c1a1eedcf5474b66980b8db148b70abc005fafd9ff88d142dae53a315224"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__seed13__gpt-4.1-mini_run002.jsonl",
+      "source_sha256": "a3553a2a260363bab5a7aad8de033fe6fbd398d838298dec5fae819286f0d9b8"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__seed13__gpt-4.1-mini_run003.jsonl",
+      "source_sha256": "af47ad6bf29f0045ada424888bdb0b7775c60ff010e7ae00298fe416be3a1541"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__predicted_only__test_dev__critdef__seed13__gpt-4.1-mini_run004.jsonl",
+      "source_sha256": "fdfdb5bdaf1fdd7180b59f22d0cd9027a296a470efeafcc6b1507e9378af858d"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run001.jsonl",
+      "source_sha256": "e00480427fe4dbdb29a544c89a8e66b9f86645c39f01111cbfcd16b8ce56b69d"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run002.jsonl",
+      "source_sha256": "e4e023db270177423b143d927215b61ee443eac19cb2b6178ff7d9b0a0476638"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__fsv3__fs4____seed13__claude-haiku-4-5-20251001_run003.jsonl",
+      "source_sha256": "ec72a08784aa3256cafede641db573176e4432885a8b369819ee649e233e8a6b"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__fsv3__fs4____seed13__claude-opus-4-5-20251101_run001.jsonl",
+      "source_sha256": "5b50f8d47e91c93604d2ced179b10114d38c9119fba010f499d521082dc919cb"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__fsv3__fs4____seed13__claude-opus-4-5-20251101_run002.jsonl",
+      "source_sha256": "2ec2d297eb88a66763f194688d3c8951f5d2d119c8328a485a3c022f1e38e7f3"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__fsv3__fs4____seed13__claude-opus-4-5-20251101_run003.jsonl",
+      "source_sha256": "df315601cca9dfffe4b68c6078737bbb69b7a4f913d849420b9ef2a2b27ab96f"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__fsv3__fs4____seed13__gpt-4.1-mini_run001.jsonl",
+      "source_sha256": "b96a1c136cac6ec7e84cba29a4c5a6811c777111968c528240d013b4f875e1ef"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__fsv3__fs4____seed13__gpt-4.1-mini_run002.jsonl",
+      "source_sha256": "d08bdc13c0d1cad259d64f8a933e6bef181f78850801289a9736729dfb5fcbb0"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__fsv3__fs4____seed13__gpt-4.1-mini_run003.jsonl",
+      "source_sha256": "1275bbab490a8fdfe9b11e1ae0b746d13a423bf20777c57a38adba4b81ecd76b"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__seed13__claude-haiku-4-5-20251001_run001.jsonl",
+      "source_sha256": "b2e14449cd19c30372ff3a2754771b12926c973bd26b23b919542424a1a7620a"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__seed13__claude-haiku-4-5-20251001_run002.jsonl",
+      "source_sha256": "b6fd1e95c705ee98aa9d999f01a0141dfcdaaccc564a50757d3fca48c7552db3"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__seed13__claude-haiku-4-5-20251001_run003.jsonl",
+      "source_sha256": "29b8f795ad924303412fded89b127c615a8b2ca5e9864b5955895bb6a032a0f4"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__seed13__claude-opus-4-5-20251101_run001.jsonl",
+      "source_sha256": "da3b13c11b5bb68e7fb1bd068c53477fdae1ef82631a741bbf17ed5c0709eaca"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__seed13__claude-opus-4-5-20251101_run002.jsonl",
+      "source_sha256": "c3acb11a2d7a1cd94b8bb704c66cb24b76b3332b6c105e7dea88d1142cc18298"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__seed13__claude-opus-4-5-20251101_run003.jsonl",
+      "source_sha256": "7a302f01bad5b83f4b849770ff994d8fc6870143645034a2930ddc930f944590"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__seed13__gpt-4.1-mini_run001.jsonl",
+      "source_sha256": "7d4d08567a9cd9bbb82650ef20ff14746ead54b0a0b60c74047a8a34483dc3cc"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__seed13__gpt-4.1-mini_run002.jsonl",
+      "source_sha256": "fb91cce3c46c5ecb8a167fde1f78a2f461029f62c49a6f469532136b46fd1d4c"
+    },
+    {
+      "path": "outputs/rubric_oracle/manifests/test_dev/endoscapes_val__cvsrubricsv3__annv2__self_rubric__test_dev__critdef__rat1__s1short__seed13__gpt-4.1-mini_run003.jsonl",
+      "source_sha256": "13bd25c91dbc9428fe859f67919e2f6dbd95709ed0598d9cd5b470e2e1b8f9dc"
+    },
+    {
+      "path": "scripts/extract_frames.py",
+      "source_sha256": "46aa98771546644ba940ba090c725053bda4e639a65d9738e8ad6d8993904e6d"
+    }
+  ]
+}
