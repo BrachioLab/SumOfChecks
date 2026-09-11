@@ -12,6 +12,7 @@ import os
 import random
 from pathlib import Path
 import shutil
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 os.environ.setdefault("HF_XET_CACHE", str(ROOT / ".cache/huggingface/xet"))
@@ -84,6 +85,7 @@ def features(item_ids: list[str]) -> Features:
         "annotation_cvs_labels": {c: Value("float64") for c in CRITERIA},
         "rubric_labels": {key: Value("string") for key in item_ids},
         "rubric_version": Value("string"), "annotation_rubric_version": Value("string"),
+        "source_annotation_rubric_version": Value("string"),
         "annotation_source": Value("string"), "annotation_row": Value("int32"),
         "annotation_notes": Value("string"), "annotation_timestamp": Value("string"),
         "sample_group_json": Value("string"), "is_paper_few_shot": Value("bool"),
@@ -152,7 +154,8 @@ def build_rows(endo_root: Path, sages_root: Path, frames_root: Path) -> dict[str
                 "cvs_rater_labels": raters, "original_cvs_annotation_json": json.dumps(original, sort_keys=True),
                 "annotation_cvs_labels": {c: float(annotation["gt"][c]) for c in CRITERIA},
                 "rubric_labels": annotation["rubrics"], "rubric_version": "cvs_rubrics_v3",
-                "annotation_rubric_version": annotation["rubric_version"],
+                "annotation_rubric_version": "cvs_rubrics_v3",
+                "source_annotation_rubric_version": annotation["rubric_version"],
                 "annotation_source": source.name, "annotation_row": index,
                 "annotation_notes": annotation.get("notes", ""), "annotation_timestamp": annotation.get("timestamp", ""),
                 "sample_group_json": json.dumps(annotation.get("sample_group", {}), sort_keys=True),
@@ -293,7 +296,8 @@ For saved image examples and loading in paper order, see the
 - `annotation_cvs_labels`: CVS labels recorded alongside the manual rubric annotation, separately retained from the original dataset labels.
 - `rubric_labels`: answers to all 19 checks, keyed by item IDs such as C1-1; values are yes, no, or uncertain.
 - `rubric_version`: bundled specification `cvs_rubrics_v3`. See [the rubric JSON](rubrics/cvs_rubrics_v3.json) for check text, types, and weights.
-- `annotation_rubric_version`: historical labeling version. Endoscapes retains `cvs_rubrics_v1`; SAGES uses `cvs_rubrics_v3`. Endoscapes labels were not newly relabeled under v3. Their item IDs and weights are shared with v3, but wording was revised.
+- `annotation_rubric_version`: `cvs_rubrics_v3` for both Endoscapes and SAGES, following the dataset maintainer's version attribution. This metadata update does not change any rubric answers.
+- `source_annotation_rubric_version`: verbatim metadata from the archived annotation file (`cvs_rubrics_v1` for Endoscapes, `cvs_rubrics_v3` for SAGES), retained only for source traceability. Legacy Endoscapes filenames are unchanged.
 - `source_dataset`, `source_split`, `source_subset`, `video_id`, `frame_id`, and annotation source/row identify provenance. Notes and timestamps retain the manual annotation context.
 - `image_sha256`, `width`, and `height` support image integrity checks.
 
@@ -366,8 +370,15 @@ def export(out: Path, endo_root: Path, sages_root: Path, frames_root: Path, repo
 
 
 def validate(location: str, expected: dict, *, token=None, revision=None) -> None:
+    # Rebuilt local exports can retain the same cache key despite schema changes.
+    with tempfile.TemporaryDirectory(prefix="sumofchecks-validation-") as cache_dir:
+        _validate(location, expected, token=token, revision=revision, cache_dir=cache_dir)
+
+
+def _validate(location: str, expected: dict, *, token=None, revision=None, cache_dir: str) -> None:
     for config, splits in partition_rows(expected).items():
-        loaded = load_dataset(location, config, token=token, revision=revision)
+        loaded = load_dataset(location, config, token=token, revision=revision,
+                              cache_dir=cache_dir)
         if set(loaded) != {"few_shot", "dev"}:
             raise ValueError(f"Unexpected splits: {config}")
         for field in ("example_id", "image_sha256"):

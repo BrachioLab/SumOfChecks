@@ -14,7 +14,7 @@ The notebook loads directly from Hugging Face, with no local dataset links or lo
 
 Rubric labels were provided by an ML PhD student trained by a surgeon. Treat them as development data, not expert surgical ground truth; original source CVS labels are retained separately.
 
-Historical annotation versions are preserved. Endoscapes labels originated under rubric v1; the bundled active specification is v3. These annotation subsets are separate from the 791-frame paper evaluation split under [manifests/endoscapes/](manifests/endoscapes/).
+Both Endoscapes and SAGES use rubric v3 (`rubric_version` and `annotation_rubric_version`), following the dataset maintainer's version attribution. Archived source-file metadata is retained separately as `source_annotation_rubric_version`; the legacy Endoscapes v1 filenames are unchanged. No rubric answers were changed by this metadata update. These annotation subsets are separate from the 791-frame paper evaluation split under [manifests/endoscapes/](manifests/endoscapes/).
 
 ## Few-shot Video and Frame Reference
 

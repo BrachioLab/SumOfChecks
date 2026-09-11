@@ -23,7 +23,9 @@ def test_subset_and_provenance(rows):
     assert {k: len(v) for k, v in rows.items()} == {"endoscapes": 53, "sages": 60}
     assert sum(r["is_paper_few_shot"] for rs in rows.values() for r in rs) == 4
     assert len({r["example_id"] for rs in rows.values() for r in rs}) == 113
-    assert {r["annotation_rubric_version"] for r in rows["endoscapes"]} == {"cvs_rubrics_v1"}
+    assert {r["annotation_rubric_version"] for r in rows["endoscapes"]} == {"cvs_rubrics_v3"}
+    assert {r["source_annotation_rubric_version"] for r in rows["endoscapes"]} == {"cvs_rubrics_v1"}
+    assert {r["source_annotation_rubric_version"] for r in rows["sages"]} == {"cvs_rubrics_v3"}
     assert {r["annotation_rubric_version"] for r in rows["sages"]} == {"cvs_rubrics_v3"}
     for config, records in rows.items():
         for r in records:
